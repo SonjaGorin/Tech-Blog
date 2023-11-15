@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
         const posts = dbPostData.map((post) =>
             post.get({ plain: true })
         );
-        res.render("main", {
+        res.render("homepage", {
             posts,
             loggedIn: req.session.loggedIn,
         });
@@ -29,17 +29,26 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
     try {
-        const dbPostData = await Post.findByPk(req.params.id, {
+        if (!req.session.loggedIn) {
+            res.redirect("/login");
+            return;
+        }
+        const post = await Post.findByPk(req.params.id, {
             include: [{
                     model: User,
                     attributes: ["username"]
             }],
         });
-        if (!dbPostData) {
+        if (!post) {
             res.status(404).json({ message: "No post found with that id!" });
             return;
         }
-            res.status(200).json(dbPostData);
+        // const plainPost = post.get({ plain: true });
+        res.render("post", {
+            "post": post.get({ plain: true }),
+            // ...plainPost,
+            loggedIn: req.session.loggedIn,
+        });
     } catch (err) {
         res.status(500).json(err);
     }
