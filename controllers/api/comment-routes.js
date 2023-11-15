@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Comment } = require("../../models");
+const { Comment, Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -9,4 +9,21 @@ router.get("/", async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+});
+
+router.get("/:id", async (req, res) => {
+    try {
+        const comment = await Comment.findByPk(req.params.id, {
+            include: [{
+                model: Post,
+            }],
+        });
+        if (!comment) {
+            res.status(404).json({ message: "No comment found with that id!" });
+            return;
+          };
+          res.status(200).json(comment);
+    } catch (err) {
+        res.status(500).json(err);
+      }
 });
