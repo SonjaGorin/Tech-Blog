@@ -1,9 +1,9 @@
 {{#if loggedIn}}
 {{> post-details post }}
 <section>
-    <form>
+    <form class="comment-form">
         <label for="post-comment">Comment</label>
-        <input type="text"/>
+        <input id="comment-content-input" type="text"/>
         <button type="submit" class="btn">Submit</button>
     </form>
 </section>
