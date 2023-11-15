@@ -38,14 +38,15 @@ router.post("/login", async (req, res) => {
     }
 });
 
-router.post("/", async (req, res) => {
+router.post("/sign-up", async (req, res) => {
     try {
         const dbUserData = await User.create({
             username: req.body.username,
             password: req.body.password,
         });
-    
         req.session.save(() => {
+            req.session.id = dbUserData.id;
+            req.session.username = dbUserData.username;
             req.session.loggedIn = true;
     
             res.status(200).json(dbUserData);

@@ -14,19 +14,21 @@
             <a href="/">Home</a>
             <a href="/dashboard">Dashboard</a>
             {{#if loggedIn}}
-            <a id="logout">Logout</a>
+            <button id="logout">Log out</button>
             {{else}}
-            <a href="/login">Login</a>
+            <a href="/login">Log in</a>
             {{/if}}
         </nav>          
         <h1>The Tech Blog</h1>
     </header>
 
     <main>
-        {{{ body }}}
+        <div>
+            {{{ body }}}
+        </div>
     </main>
     {{#if loggedIn}}
-    {{!-- <script src=""></script> --}}
+    <script src="/js/logout.js"></script>
     {{/if}}
 </body>
 

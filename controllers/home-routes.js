@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
         const posts = dbPostData.map((post) =>
             post.get({ plain: true })
         );
-        res.render("main", {
+        res.render("homepage", {
             posts,
             loggedIn: req.session.loggedIn,
         });
@@ -31,6 +31,10 @@ router.get("/login", (req, res) => {
         return;
     }
     res.render("login");
+});
+
+router.get("/sign-up", (req, res) => {
+    res.render("sign-up");
 });
 
 module.exports = router;
