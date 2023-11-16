@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User } = require("../../models");
+const { Post, User, Comment } = require("../../models");
 const sequelize = require("../../config/connection");
 const withAuth = require("../../utils/auth");
 
@@ -10,6 +10,16 @@ router.get("/", async (req, res) => {
                 {
                     model: User,
                     attributes: ["username"],
+                },
+                {
+                    model: Comment,
+                    attributes: ["content"],
+                    include: [
+                        {
+                            model: User,
+                            attributes: ["username"],
+                        },
+                    ],
                 },
             ],
         });
@@ -27,23 +37,31 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
     try {
-        if (!req.session.loggedIn) {
-            res.redirect("/login");
-            return;
-        }
         const post = await Post.findByPk(req.params.id, {
             include: [{
                     model: User,
                     attributes: ["username"]
-            }],
+                },
+                {
+                    model: Comment,
+                    attributes: ["content", "createdAt"],
+                    include: [
+                        {
+                            model: User,
+                            attributes: ["username"],
+                        },
+                    ],
+                },
+            ],
         });
         if (!post) {
             res.status(404).json({ message: "No post found with that id!" });
             return;
         }
         // const plainPost = post.get({ plain: true });
+        console.log(post.get({ plain: true }))
         res.render("post", {
             "post": post.get({ plain: true }),
             // ...plainPost,

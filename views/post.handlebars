@@ -8,3 +8,7 @@
     </form>
 </section>
 {{/if}}
+{{> comment-details post.comments }}
+{{#if loggedIn}}
+<script src="/js/comment.js"></script>
+{{/if}}
