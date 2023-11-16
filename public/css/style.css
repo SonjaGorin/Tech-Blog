@@ -58,7 +58,9 @@ h1 {
 .post-card,
 .login-card,
 .sign-up-card,
-.comment-card {
+.comment-card,
+.edit-post-card,
+.create-post-card {
     border-style:solid;
     border-width: 4px;
     border-color: #243d44;
@@ -68,19 +70,22 @@ h1 {
 
 .card-title,
 #login-title,
-#signup-title {
+#signup-title,
+#edit-post-title,
+#create-post-title {
     display: flex;
     justify-content: space-between;
     background-color: #cbf0de;
     padding: 10px 20px;
     border-style: solid;
-    border-width:0px 0px 4px 0px;
+    border-width: 0px 0px 4px 0px;
     border-color: #243d44;
 }
 
 #home-post-title,
 #login-title,
-#signup-title {
+#signup-title,
+#create-post-title {
     text-decoration: none;
     color: #1d8657;
     font-size: 25px;
@@ -98,7 +103,9 @@ h1 {
 
 .login-form,
 .signup-form,
-.comment-form {
+.comment-form,
+.edit-post-form,
+.add-post-form {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -106,7 +113,9 @@ h1 {
 
 #username-label,
 #password-label,
-#comment-label {
+#comment-label,
+#title-label,
+#content-label {
     color: #243d44;
     font-size: 20px;
     font-weight: bold;
@@ -117,7 +126,11 @@ h1 {
 #password-login-input,
 #username-signup-input,
 #password-signup-input,
-#comment-content-input {
+#comment-content-input,
+#post-title-input,
+#post-content-input,
+#add-post-title-input,
+#add-post-content-input {
     height: 40px;
     margin-bottom: 10px;
 }
@@ -126,7 +139,10 @@ h1 {
 #signup-button,
 #submit-comment-button,
 #new-post-button,
-#np-bttn {
+#np-bttn,
+#update-button,
+#delete-button,
+#create-button {
     text-decoration: none;
     width: 10%;
     color:rgb(241, 234, 208);
@@ -142,7 +158,8 @@ h1 {
 
 #signup-button,
 #new-post-button,
-#np-bttn {
+#np-bttn,
+#create-button {
     height: 60px;
     font-size: 25px;
 }
@@ -171,4 +188,8 @@ h1 {
 
 #np-bttn {
     margin-left: 30px;
+}
+
+#delete-button {
+    margin-top: 10px;
 }
