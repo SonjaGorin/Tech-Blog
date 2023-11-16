@@ -45,3 +45,49 @@ router.get("/", withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get("/edit/:id", withAuth, async (req, res) => {
+    try {
+        const post = await Post.findByPk(req.params.id, {
+            attributes: [
+                "id",
+                "title",
+                "content",
+                "createdAt"
+            ],
+            include: [{
+                    model: User,
+                    attributes: ["username"]
+                },
+                {
+                    model: Comment,
+                    attributes: ["content", "createdAt"],
+                    include: [
+                        {
+                            model: User,
+                            attributes: ["username"],
+                        },
+                    ],
+                },
+            ],
+        });
+
+        if (!post) {
+            res.status(404).json({ message: "No post found with that id!" });
+            return;
+        }
+
+        res.render("delete-edit-post", {
+            "post": post.get({ plain: true }),
+            loggedIn: req.session.loggedIn,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get("/new", (req, res) => {
+    res.render("add-post");
+});
+
+module.exports = router;
