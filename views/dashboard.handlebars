@@ -1,10 +1,12 @@
-{{#if posts.length}}
-    <h2>Your Posts</h2>
-    {{#each posts as |post| }}
-    {{> dashboard-post-details post }}
-    {{/each}}
-{{/if}}
+    {{#if posts.length}}
+        <h2 id="your-posts-title">Your Posts</h2>
+        <section class="dash-posts-section">
+            {{#each posts as |post| }}
+            {{> dashboard-post-details post }}
+            {{/each}}
+        </section>
+    {{/if}}
 
-<button type="submit"><a href="/dashboard/new">+ New Post</a></button>
+    <button id="np-bttn" type="submit"><a id="new-post-button" href="/dashboard/new">+ New Post</a></button>
 
 <script src="/js/add-post.js"></script>

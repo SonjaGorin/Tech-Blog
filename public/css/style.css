@@ -14,13 +14,19 @@ body {
 
 main {
     display:flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: rgb(255, 249, 223);;
 }
 
 header {
     background-color: #243d44;
-    padding-top: 10px;
-    padding-bottom: 5px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     padding-left: 10px;
+    margin-bottom: 10px;
 }
 
 #home_button,
@@ -36,7 +42,12 @@ header {
 h1 {
     color: #2dea8f;
     font-size: 40px;
-    padding: 15px;
+    padding: 10px 15px;
+}
+
+#your-posts-title {
+    font-size: 35px;
+    padding: 10px 30px;
 }
 
 #logout {
@@ -44,7 +55,32 @@ h1 {
     border: 0;
 }
 
-#home-post-title {
+.post-card,
+.login-card,
+.sign-up-card,
+.comment-card {
+    border-style:solid;
+    border-width: 4px;
+    border-color: #243d44;
+    border-width: 100%;
+    margin: 20px 30px;
+}
+
+.card-title,
+#login-title,
+#signup-title {
+    display: flex;
+    justify-content: space-between;
+    background-color: #cbf0de;
+    padding: 10px 20px;
+    border-style: solid;
+    border-width:0px 0px 4px 0px;
+    border-color: #243d44;
+}
+
+#home-post-title,
+#login-title,
+#signup-title {
     text-decoration: none;
     color: #1d8657;
     font-size: 25px;
@@ -52,4 +88,87 @@ h1 {
 
 #post-info {
     color:#167a8b;
+    padding-top: 5px;
+    padding-right: 50px;
+}
+
+#post-content {
+    padding: 10px;
+}
+
+.login-form,
+.signup-form,
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#username-label,
+#password-label,
+#comment-label {
+    color: #243d44;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+#username-login-input,
+#password-login-input,
+#username-signup-input,
+#password-signup-input,
+#comment-content-input {
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+#login-button,
+#signup-button,
+#submit-comment-button,
+#new-post-button,
+#np-bttn {
+    text-decoration: none;
+    width: 10%;
+    color:rgb(241, 234, 208);
+    background-color: #243d44;
+}
+
+#sign-up-link,
+#login-link {
+    text-decoration: none;
+    font-size: 20px;
+    color: #243d44;
+}
+
+#signup-button,
+#new-post-button,
+#np-bttn {
+    height: 60px;
+    font-size: 25px;
+}
+
+.comment-section {
+    margin: 0px 20px;
+}
+
+.comment-card {
+    padding: 30px;
+}
+
+#comment-content {
+    padding-bottom: 10px;
+}
+
+#dash-post-title {
+    text-decoration: none;
+    color: #1d8657;
+    font-size: 25px;
+}
+
+.dash-posts-section {
+    padding: 10px 30px;
+}
+
+#np-bttn {
+    margin-left: 30px;
 }

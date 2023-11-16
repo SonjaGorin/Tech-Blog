@@ -1,14 +1,14 @@
-<section>
-    <h3>Edit Post</h3>
+<section class="edit-post-card">
+    <h3 id="edit-post-title">Edit Post</h3>
     <form class="edit-post-form">
-        <label for="post-title">Title</label>
+        <label id="title-label" for="post-title">Title</label>
         <input id="post-title-input" name="post-title-input" type="text" value="{{ post.title }}"/>
 
-        <label for="post-content">Content</label>
+        <label id="content-label" for="post-content">Content</label>
         <input id="post-content-input" name="post-content-input" type="text" value="{{ post.content }}"/>
 
-        <button type="submit">Update Post</button>
-        <button type="button" class="delete-post-button">Delete Post</button>
+        <button id="update-button" type="submit">Update Post</button>
+        <button id="delete-button" type="button" class="delete-post-button">Delete Post</button>
     </form>
 </section>
 

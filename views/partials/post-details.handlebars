@@ -1,9 +1,9 @@
-<div>
-    <section>
+<div class="post-card">
+    <section class="card-title">
         <h2><a id="home-post-title" href="api/posts/{{ id }}">{{ title }}</a></h2>
         <h3 id="post-info">Posted by {{ user.username }} on {{ format_date createdAt }}</h3>
     </section>
     <section>
-        <p>{{ content }}</p>
+        <p id="post-content">{{ content }}</p>
     </section>
 </div>

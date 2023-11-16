@@ -1,10 +1,10 @@
 {{#if loggedIn}}
 {{> post-details post }}
-<section>
+<section class="comment-section">
     <form class="comment-form">
-        <label for="post-comment">Comment</label>
+        <label id="comment-label" for="post-comment">Comment</label>
         <input id="comment-content-input" type="text"/>
-        <button type="submit" class="btn">Submit</button>
+        <button id="submit-comment-button" type="submit" class="btn">Submit</button>
     </form>
 </section>
 {{/if}}
