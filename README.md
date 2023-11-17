@@ -17,7 +17,7 @@ In the end, just run "npm start" to start the application.
 
 To use Tech Blog you can click on the link below:
 
-[Tech Blog - Sonja Gorin]()
+[Tech Blog - Sonja Gorin](https://technology-blog-sg-b51f56d78026.herokuapp.com/)
 
 Preview:
 ![Tech-Blog-Screenshot](public/images/tech-blog-screenshot-01.png)
